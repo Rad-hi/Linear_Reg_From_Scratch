@@ -17,17 +17,16 @@ def sklearn_to_df(data_loader):
 	y = pd.Series(y_data, name = 'target')
 	return x, y
 
-#############################################
-###    Load data from an external file    ###
-#############################################
-
-if(__name__ == "__main__"):		
+if(__name__ == "__main__"):
+	#############################################
+	###    Load data from an external file    ###
+	#############################################		
 	x, y = sklearn_to_df(load_boston())
 
 	x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 	## Vizualize the data
-	print(x_train.describe)
+	print(x_train.describe())
 
 	# Creating the class object
 	regressor = MultiD_LinearRegression(x_train, x_test, y_train, y_test)
@@ -52,4 +51,4 @@ if(__name__ == "__main__"):
 	print("The coefficient of determination is equal to: {}".format(r2))
 	print("The code ran in: {} seconds".format(time()-start))
 
-	## We can't vizualise the data since it's multidimensional
+	## We can't vizualise the data since it's multidimensional (in a single graph I mean)
