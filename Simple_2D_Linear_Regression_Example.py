@@ -43,19 +43,33 @@ regressor.assign_data(x, y)
 # --> 2nd method is by calculating the slope and intercept
 # Uncomment the desired method
 
-regressor.fit_grad(100, 0.0001) # epochs-1000 , learning_rate - 0.0001
-#regressor.best_fit_slope_intercept()
+print(1235)
 
-###########################
-###    Use the model    ###
-###########################
+preformance_report = {}
 
-# Prediciting the values
-y_pred = regressor.predict(x)
+for i in range (1, 1, 10):
+	lr = 1/i
 
-# Evaluate the model by calculating its coefficient of determination
-r2 = regressor.coef_det(y_pred)
+	regressor.fit_grad(1000, lr) # epochs-1000 , learning_rate - 0.0001
+	#regressor.best_fit_slope_intercept()
 
+	###########################
+	###    Use the model    ###
+	###########################
+
+	# Prediciting the values
+	y_pred = regressor.predict(x)
+
+	# Evaluate the model by calculating its coefficient of determination
+	r2 = regressor.coef_det(y_pred)
+
+	print(i)
+	#preformance_report[lr] = r2
+
+print(1235)
+
+#print(preformance_report)
+"""
 #
 print("The coefficient of determination is equal to: {}".format(r2))
 print("The code ran in: {} seconds".format(time()-start))
@@ -66,3 +80,4 @@ plt.plot(x , y_pred, color = "black")
 plt.xlabel('x' , size = 10)
 plt.ylabel('y', size = 10)
 plt.show()
+"""
