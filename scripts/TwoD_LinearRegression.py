@@ -39,6 +39,10 @@ class TwoD_LinearRegression:
         ## Slope : m = /X./Y - /(X.Y)  # /X : Mean of all elements of X
         ##             ______________
         ##             (/X)² - /(X²)
+        ##------------------------------
+        ##         m = Cov(X, Y)
+        ##             _________
+        ##               Var(X)
         self.m = ((mean(self.data)*mean(self.label) - mean(self.data*self.label))
                  /(mean(self.data)*mean(self.data) - mean(self.data*self.data)))
 
@@ -47,7 +51,7 @@ class TwoD_LinearRegression:
         self.b = mean(self.label) - self.m*mean(self.data)
 
     ## Squared error
-    def squared_error(self, first, second):
+    def _squared_error(self, first, second):
         return sum((second - first) ** 2)
 
     ## Coefficient of determination: 
@@ -58,9 +62,9 @@ class TwoD_LinearRegression:
         ## Y mean line
         y_mean_line = [mean(self.label) for _ in self.label ]
         ## SE(Ŷ) # Squared error of the Y line
-        squeared_error_reg = self.squared_error(self.label, predicted_ys)
+        squeared_error_reg = self._squared_error(self.label, predicted_ys)
         ## SE(/Y) # Squared error of the mean line
-        squeared_error_y_mean = self.squared_error(self.label, y_mean_line)
+        squeared_error_y_mean = self._squared_error(self.label, y_mean_line)
         return 1 - (squeared_error_reg / squeared_error_y_mean)
          
     def fit_grad(self , epochs , learning_rate):
