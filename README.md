@@ -18,6 +18,11 @@ This code is for 2D linear regression, these methods get a bit complicated when 
 
 I might be implementing a Pseudo-inverse method for multi-dimensional linear regression (instant method) in the future.
 
+**Edit**
+
+I implemented the MultiD_LinearRegression class and used it for two examples.
+
+I didn't go thoroughly into the math of it since the references I listed are just perfect (at least they are in my opinion)
 ---
 
 # References: 
