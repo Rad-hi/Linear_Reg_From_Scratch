@@ -74,7 +74,6 @@ class TwoD_LinearRegression:
             self.m = self.m - learning_rate * D_m
             self.c = self.b - learning_rate * D_b
 
-
     def predict(self , input_):
         y_pred = self.m * input_ + self.b 
         return y_pred
