@@ -14,6 +14,8 @@ It's a simple class that contains functions for random linear data genration, ex
 
 - Least squares (instant method).
 
+- Least squares for the case 2D data (X is a vector; we only have one feature)
+
 This code is for 2D linear regression, these methods get a bit complicated when implemented for dimensions higher than 2 (basically once we stop looking for lines and we switch to hyper planes ("lines" in multi-dimensions, example: a 2D-plane is a 3D-space hyper-plane, ...).
 
 I might be implementing a Pseudo-inverse method for multi-dimensional linear regression (instant method) in the future.
