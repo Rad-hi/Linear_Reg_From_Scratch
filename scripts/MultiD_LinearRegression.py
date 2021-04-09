@@ -26,7 +26,7 @@ class MultiD_LinearRegression:
 	## E_in = (1/N).Sum[(h(x)-f(x)_in)²] (f(x)_in are the labels Y of the sample_data)
 	## min(E_in) <=> grad(E_in) = 0 (when the derivative of E_in is null, we have our min)
 	## --> E_in = (1/N)*||x.w - y||² (mathematically, this is how we get E_in, ||.|| is the norm)
-	## After a call to linear algebra, we get the solution to grad(E_in) = 0 is W = (X^t.X)^-1.Y
+	## After a call to linear algebra, we get the solution to grad(E_in) = 0 is W = (X^t.X)^-1.X^t.Y
 	def fit_multi(self):
 		## We add a column called "ones" to the X df at index 0 which will be the intercept vector
 		x = self._transform_x(self.data)
