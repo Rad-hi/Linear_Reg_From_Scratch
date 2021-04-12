@@ -27,6 +27,7 @@ if(__name__ == "__main__"):
 
 	## Vizualize the data
 	print(x_train.describe())
+	print(x_train.head)
 
 	# Creating the class object
 	regressor = MultiD_LinearRegression(x_train, x_test, y_train, y_test)

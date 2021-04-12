@@ -4,6 +4,7 @@ from MultiD_LinearRegression import MultiD_LinearRegression
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
 from time import time
 
 start = time()
@@ -65,7 +66,24 @@ if(__name__ == "__main__"):
 	r2 = regressor.coef_det(y_pred)
 
 	#
-	print("The coefficient of determination is equal to: {}".format(r2))
+	print("Our Final R^2 score: {}".format(r2))
+
+
+	##############################################
+	###    Scikit-Learn's Linear Regression    ###
+	##############################################
+
+	sk_regressor = LinearRegression()
+
+	# fit scikit-learn's LR to our data
+	sk_regressor.fit(x_train, y_train)
+
+	# predicts and scores
+	sk_score = sk_regressor.score(x_test, y_test)
+	
+	print("Scikit-Learn\'s Final R^2 score: {}".format(sk_score))
+
+	#
 	print("The code ran in: {} seconds".format(time()-start))
 
 	## We can't vizualise the data since it's multidimensional (in a single graph I mean)
