@@ -2,10 +2,13 @@
 
 from MultiD_LinearRegression import MultiD_LinearRegression
 
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
 from time import time
+
 
 start = time()
 
@@ -22,11 +25,13 @@ if(__name__ == "__main__"):
 	#############################################
 	###    Load data from an external file    ###
 	#############################################
+
 	df = pd.read_csv("USA_Housing.csv")
 
 	##############################
 	###    Explore the data    ###
 	##############################
+
 	#explore_data()
 	
 	##############################
@@ -65,25 +70,36 @@ if(__name__ == "__main__"):
 	# Evaluate the model by calculating its coefficient of determination
 	r2 = regressor.coef_det(y_pred)
 
-	#
-	print("Our Final R^2 score: {}".format(r2))
-
-
 	##############################################
 	###    Scikit-Learn's Linear Regression    ###
 	##############################################
 
 	sk_regressor = LinearRegression()
-
-	# fit scikit-learn's LR to our data
 	sk_regressor.fit(x_train, y_train)
+	predict = sk_regressor.predict(x_test)
 
-	# predicts and scores
-	sk_score = sk_regressor.score(x_test, y_test)
+	##############################
+	###    Model evaluation    ###
+	##############################
 	
-	print("Scikit-Learn\'s Final R^2 score: {}".format(sk_score))
+	"""
+	## Sklearn's performance
+	print('MAE ',mean_absolute_error(y_test,predict))
+	print('MSE ',mean_squared_error(y_test,predict))
+	print('R² Score ',r2_score(y_test,predict))
+	print('RMSE ',np.sqrt(mean_squared_error(y_test,predict)))
+	
+	## Our model's performance
+	print('OUR__MAE ',mean_absolute_error(y_test,y_pred))
+	print('OUR__MSE ',mean_squared_error(y_test,y_pred))
+	print('OUR__R² Score ',r2_score(y_test,y_pred))
+	print('OUR__RMSE ',np.sqrt(mean_squared_error(y_test,y_pred)))
 
-	#
+	"""
+
+	print("Our Final R^2 score: {}".format(r2))
+	print("Scikit-Learn\'s Final R^2 score: {}".format(r2_score(y_test,predict)))
+
 	print("The code ran in: {} seconds".format(time()-start))
 
 	## We can't vizualise the data since it's multidimensional (in a single graph I mean)

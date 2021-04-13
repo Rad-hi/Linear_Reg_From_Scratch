@@ -56,7 +56,7 @@ regressor.assign_data(x, y)
 # --> 2nd method is by calculating the slope and intercept
 # Uncomment the desired method
 
-#regressor.fit_grad(100, 0.0001) # epochs-1000 , learning_rate - 0.0001
+#regressor.fit_grad(100, 0.00001) # epochs-1000 , learning_rate - 0.0001
 regressor.best_fit_slope_intercept()
 
 ###########################
