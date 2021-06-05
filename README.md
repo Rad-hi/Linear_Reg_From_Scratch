@@ -4,7 +4,7 @@
 
 # Overview
 
-This is a bibliographic dive into the basics of machine learning (ML) and how it actually works under the hoods of all available frameworks (sklearn, tf, pytorch, ...)
+This is a bibliographic dive into the basics of machine learning (ML) and how it actually works under the hoods of all available frameworks (sklearn, tf, pytorch, ...), in the context of a school project.
 
 This code is basically not mine, I copy pasted and got inspired from a couple of sources, which I'll be listing in the references section of this README.
 
